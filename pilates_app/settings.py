@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-22op6q(r4%wg7x2zx(=he4bf7p!)_mn+_%2lo5uf4y6k*id*xw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['your-backend.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['pilates-backend.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
