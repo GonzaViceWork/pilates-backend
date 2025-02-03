@@ -1,0 +1,19 @@
+# Django specific
+*.log
+*.pot
+*.pyc
+*.pyo
+__pycache__/
+db.sqlite3
+
+# Environments
+.env
+venv/
+ENV/
+env/
+
+# VSCode settings (opcional)
+.vscode/
+
+# MacOS specific (opcional)
+.DS_Store
