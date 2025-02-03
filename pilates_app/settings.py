@@ -137,4 +137,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOW_ALL_ORIGINS = True  # Permitir todas las conexiones (ajústalo en producción)
+CORS_ALLOWED_ORIGINS = [
+    "https://pilates-frontend.vercel.app/",
+]
