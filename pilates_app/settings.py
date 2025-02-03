@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from urllib.parse import urlparse
+
+DATABASE_URL = os.getenv('DATABASE_URL')
+url = urlparse(DATABASE_URL)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,7 +84,14 @@ WSGI_APPLICATION = 'pilates_app.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': url.path[1:],  # Nombre de la base de datos
+        'USER': url.username,  # Usuario de la base de datos
+        'PASSWORD': url.password,  # Contraseña
+        'HOST': url.hostname,  # Host de la base de datos
+        'PORT': url.port,  # Puerto
+    }
 }
 
 
