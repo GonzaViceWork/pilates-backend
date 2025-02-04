@@ -80,6 +80,9 @@ class SessionViewSet(viewsets.ModelViewSet):
         # Filtrar los clientes que realmente están asignados a esta sesión
         valid_clients = Client.objects.filter(Q(id__in=client_ids) & Q(id__in=assigned_client_ids))
 
+        # Asignar clientes a attended_clients
+        session.attended_clients.set(valid_clients)
+
         # Convertir la hora de la sesión al huso horario de Lima, Perú
         lima_tz = timezone("America/Lima")
         session_datetime_lima = session.date.astimezone(lima_tz)
